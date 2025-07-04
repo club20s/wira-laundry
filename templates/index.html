@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Metadata dasar -->
+  <meta charset="UTF-8" />
+  <!-- Membuat tampilan responsif di mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wira laundry.id</title>
+  <!-- Memanggil file CSS di folder static -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- ========== HEADER & NAVIGATION ========== -->
+  <header class="hero-header">
+    <!-- Navigation bar -->
+    <nav class="navbar">
+      <!-- Logo laundry -->
+      <img src="{{ url_for('static', filename='wiralogo.png') }}" alt="Logo" class="logo" />
+      <!-- Menu navigasi -->
+      <ul>
+        <!-- Scroll ke bagian How it Works -->
+        <li><a href="#how-it-works">How it Works</a></li>
+        <!-- Scroll ke bagian Our Services -->
+        <li><a href="#services">Our Services</a></li>
+        <!-- Tombol Request Pickup ke WhatsApp -->
+        <li>
+          <a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20request%20pickup%20laundry" target="_blank" class="btn">
+            Request Pickup
+          </a>
+        </li>
+      </ul>
+    </nav>
+  
+    <!-- Bagian Hero Content (Judul & Deskripsi) -->
+    <div class="hero-content">
+      <h1>Wira Laundry and Dry Cleaning with Delivery</h1>
+      <p>We deliver the best laundry and dry cleaning service to your door.</p>
+      <!-- Tombol Request Pickup di bagian hero -->
+      <a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20request%20pickup%20laundry" target="_blank" class="btn">
+        Request Pickup
+      </a>
+    </div>
+  </header>
+  
+  <!-- ========== ABOUT SECTION ========== -->
+  <section id="about">
+    <div class="about-content">
+      <!-- Gambar mesin cuci -->
+      <img src="{{ url_for('static', filename='washing machine.jpg') }}" alt="Washing Machine" class="about-img" />
+      <!-- Teks penjelasan about -->
+      <div class="text">
+        <h2>Dengan Pelayanan <span class="highlight">Kami</span></h2>
+        <p>
+          Kami menyediakan layanan laundry ekspres dengan waktu pengerjaan 24 jam dan bahkan hanya 6 jam. 
+          Dengan layanan ini, pakaian Anda akan bersih, rapi, dan siap dipakai tanpa harus menunggu lama. 
+          Lebih cepat, lebih praktis, dan tentunya tetap menjaga kualitas cucian serta ramah lingkungan .
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS SECTION ========== -->
+  <section id="how-it-works">
+    <!-- Judul section -->
+    <h2>How It Works</h2>
+    <!-- Langkah-langkah proses laundry -->
+    <div class="steps">
+      <!-- Langkah 1 -->
+      <div class="step">
+        <img src="{{ url_for('static', filename='delivery.png') }}" alt="Place RFID Tag" />
+        <h3>Gratis Antar & Jemput</h3>
+        <p>Nikmati laundry ekspres 24 jam atau kilat 6 jam dengan layanan jemput & antar GRATIS. Hemat waktu, tetap rapi, kualitas terjamin.</p>
+      </div>
+      <!-- Langkah 2 -->
+      <div class="step">
+        <img src="{{ url_for('static', filename='laundry-basket.png') }}" alt="laundry Bag" />
+        <h3>Laundry Kiloan</h3>
+        <p>Punya cucian banyak? Serahkan ke kami! Laundry kiloan praktis, bersih cepat, hemat waktu, antar jemput GRATIS.</p>
+      </div>
+      <!-- Langkah 3 -->
+      <div class="step">
+        <img src="{{ url_for('static', filename='laundry-machine.png') }}" alt="Washing" />
+        <h3>Laundry Satuan</h3>
+        <p>Kami juga menerima laundry satuan seperti jas, gaun, bed cover, sepatu, dan lainnya, dengan layanan ekspres 24 jam atau 6 jam, tetap dengan jemput & antar GRATIS!”.</p>
+      </div>
+      <!-- Langkah 4 -->
+      <div class="step">
+        <img src="{{ url_for('static', filename='clothing.png') }}" alt="Clothes" />
+        <h3>Check All Clothes</h3>
+        <p>Garansi komplain 2x24 jam
+          .</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US SECTION ========== -->
+  <section id="services">
+    <!-- Judul section -->
+    <h2>Kenapa Wira Laundry</h2>
+    <!-- Alasan memilih Washd -->
+    <div class="reasons">
+      <!-- Alasan 1: Hemat air -->
+      <div class="reason">
+        <h3>💧 Menggunakan lebih sedikit air</h3>
+        <p>Hemat lebih banyak air pada setiap muatan, membantu lingkungan..</p>
+      </div>
+      <!-- Alasan 2: Hemat deterjen -->
+      <div class="reason">
+        <h3>🧴 Menggunakan lebih sedikit deterjen</h3>
+        <p>Dosis otomatis menghemat deterjen dan mengoptimalkan pembersihan.</p>
+      </div>
+      <!-- Alasan 3: Hemat biaya -->
+      <div class="reason">
+        <h3>💰 Saving money</h3>
+        <p>Kurangi tagihan dengan mencuci lebih banyak pakaian dengan lebih sedikit energiy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script JS -->
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
+  <!-- ========== FOOTER SECTION ========== -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Info brand -->
+    <div class="footer-about">
+      <h3>Wira Laundry</h3>
+      <p>
+        Wira Laundry menyediakan layanan laundry & dry cleaning dengan sistem penjemputan
+        dan pengantaran ke rumah Anda. Praktis, hemat waktu, dan ramah lingkungan.
+      </p>
+    </div>
+
+    <!-- Link navigasi ulang -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#how-it-works">How it Works</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20request%20pickup%20laundry" target="_blank">Request Pickup</a></li>
+      </ul>
+    </div>
+
+    <!-- Kontak -->
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>WhatsApp: +62 812-3456-7890</p>
+      <p>Email: support@wiralaundry.id</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Wira Laundry. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
