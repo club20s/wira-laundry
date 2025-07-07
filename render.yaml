@@ -1,7 +1,0 @@
-# render.yaml
-services:
-  - type: web
-    name: wira-laundry
-    env: python
-    buildCommand: ""
-    startCommand: gunicorn app:app

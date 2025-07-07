@@ -273,21 +273,25 @@ nav .contact-btn {
 @media(max-width: 768px) {
   .navbar {
     position: static;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    text-align: center;
+    flex-direction: row; /*tetap horizontal*/
+    flex-wrap: nowrap; /*jangan melipat ke bawah*/
+    gap: 10px; /*jarak antar link lebih kecil*/
+    padding: 10px 20px; /*padding atas bawah kecil*/
+    /* text-align: center; */
     background: rgba(255, 255, 255, 0.8); /* Opsional: latar semi transparan */
+    overflow-x: auto; /*bisa geser jika terlalu panjang*/
   }
 
   .navbar ul {
-    flex-direction: column;
+    flex-direction: row; /*tetap baris*/
+    flex-wrap: nowrap;
     gap: 10px;
   }
 
   .navbar a {
-    display: block;
-    margin: 10px 0;
+    margin: 0;           /* Hilangkan margin vertical */
+    font-size: 0.9rem;   /* Font lebih kecil */
+    white-space: nowrap; /* Biar tidak patah baris */
   }
 
   .hero-content {
