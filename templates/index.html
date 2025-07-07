@@ -9,6 +9,7 @@
   <!-- Memanggil file CSS di folder static -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
   <!-- ========== HEADER & NAVIGATION ========== -->
@@ -18,7 +19,10 @@
       <!-- Logo laundry -->
       <img src="{{ url_for('static', filename='wiralogo.png') }}" alt="Logo" class="logo" />
       <!-- Menu navigasi -->
-      <ul>
+      
+      <!-- hamburger icon -->
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <ul class="nav-links">
         <!-- Scroll ke bagian How it Works -->
         <li><a href="#how-it-works">How it Works</a></li>
         <!-- Scroll ke bagian Our Services -->

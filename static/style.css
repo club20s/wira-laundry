@@ -1,5 +1,4 @@
 /* === RESET === */
-/* Menghilangkan margin & padding default, memaksa lebar 100% & hilangkan scroll horizontal */
 html, body {
   margin: 0;
   padding: 0;
@@ -7,47 +6,38 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Atur box-sizing ke border-box untuk semua elemen agar padding & border tidak nambah ukuran */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* === GLOBAL === */
-/* Atur font, line height, dan warna teks default */
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   color: #333;
 }
 
-/* Hilangkan underline pada link & samakan warna dengan teks default */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Gambar maksimal 100% lebar parent, dan block agar tidak inline */
 img {
   max-width: 100%;
   display: block;
 }
 
-/* Hapus margin bawah default pada heading */
 h1, h2, h3 {
   margin-bottom: 10px;
 }
 
-/* Margin bawah default untuk paragraf */
 p {
   margin-bottom: 15px;
 }
 
-/* Warna biru untuk teks highlight */
 .highlight {
   color: #007bff;
 }
 
-/* Style umum untuk tombol/link tombol */
 .btn {
   display: inline-block;
   background: #007bff;
@@ -56,44 +46,35 @@ p {
   border-radius: 4px;
 }
 
-/* Hover effect untuk tombol */
 .btn:hover {
   background: #0056b3;
 }
 
 /* === HEADER === */
-/* Gaya dasar header */
 header {
   background: #f5f5f5;
   padding: 20px 40px;
   position: relative;
 }
 
-/* Ukuran logo header */
 header .logo {
   height: 40px;
 }
 
-/* Navbar flex: sejajar horizontal, spasi rata kiri-kanan, absolute di atas hero */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 20px 5%;
+  position: relative; /* FIXED: relative so nav-links absolute stays inside */
+  padding: 30px 50px;
+  width: 100%;
   z-index: 10;
 }
 
-/* Style link di navbar */
 nav a {
-  margin-left: 20px;
   font-weight: bold;
 }
 
-/* Tombol contact di navbar */
 nav .contact-btn {
   background: #007bff;
   color: #fff;
@@ -101,42 +82,32 @@ nav .contact-btn {
   border-radius: 4px;
 }
 
-/* Hero section dengan background image full screen */
 .hero-header {
   position: relative;
   width: 100%;
-  height: 100vh; /* Tinggi layar penuh */
+  height: 100vh;
   background: url('../static/Hanging Clothes.jpg') no-repeat center center/cover;
   color: #060000;
 }
 
-/* Navbar duplikat (jaga-jaga override) */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 50px;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 10;
+.nav-links {
+  display: none; /* DEFAULT hidden, mobile toggle works */
 }
 
-/* List navbar: horizontal, hilangkan bullet, beri jarak antar item */
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
+@media(min-width: 769px) {
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+  }
 }
 
-/* Link navbar warna hitam & tebal */
 .navbar a {
   color: #000409;
   text-decoration: none;
   font-weight: bold;
 }
 
-/* Tombol khusus nav */
 .navbar .btn-nav {
   background: #007bff;
   padding: 8px 16px;
@@ -144,7 +115,6 @@ nav .contact-btn {
   color: #fff;
 }
 
-/* Posisi & style hero content */
 .hero-content {
   position: absolute;
   top: 50%;
@@ -155,19 +125,16 @@ nav .contact-btn {
   padding: 20px;
 }
 
-/* Ukuran heading hero */
 .hero-content h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
-/* Ukuran paragraf hero */
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
 }
 
-/* Style tombol hero */
 .hero-content .btn {
   background: #28a745;
   color: #fafafa;
@@ -176,8 +143,36 @@ nav .contact-btn {
   font-weight: bold;
 }
 
-/* === ABOUT SECTION === */
-/* Section about flex row, wrap jika sempit */
+/* === HAMBURGER === */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media(max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    flex-direction: column;
+    gap: 10px;
+    background: #f5f5f5;
+    padding: 20px;
+    width: 200px;
+    border-radius: 4px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
+
+/* === ABOUT === */
 #about {
   display: flex;
   flex-wrap: wrap;
@@ -186,14 +181,12 @@ nav .contact-btn {
   background: #fff;
 }
 
-/* Konten about flex, wrap & gap antar elemen */
 .about-content {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
 }
 
-/* Gambar about: max lebar & tinggi tetap, sudut membulat */
 .about-img {
   max-width: 400px;
   width: 100%;
@@ -201,25 +194,21 @@ nav .contact-btn {
   border-radius: 8px;
 }
 
-/* Teks about: lebar minimum 400px */
 .about-content .text {
   flex: 1 1 400px;
 }
 
-/* Judul about margin bawah */
 #about h2 {
   margin-bottom: 20px;
 }
 
 /* === HOW IT WORKS === */
-/* Section How It Works */
 #how-it-works {
   background: #f9f9f9;
   padding: 60px 40px;
   text-align: center;
 }
 
-/* Steps container: flex row, wrap, rata tengah, gap antar step */
 .steps {
   display: flex;
   flex-wrap: wrap;
@@ -228,26 +217,22 @@ nav .contact-btn {
   margin-top: 40px;
 }
 
-/* Satu step: lebar minimum 200px, max 220px */
 .step {
   flex: 1 1 200px;
   max-width: 220px;
 }
 
-/* Gambar step: tinggi tetap & margin bawah */
 .step img {
   height: 60px;
   margin-bottom: 15px;
 }
 
-/* === WHY CHOOSE US SECTION === */
-/* Section layanan/why choose us */
+/* === WHY CHOOSE US === */
 #services {
   padding: 60px 40px;
   text-align: center;
 }
 
-/* Container alasan: flex row wrap rata tengah */
 .reasons {
   display: flex;
   flex-wrap: wrap;
@@ -256,59 +241,78 @@ nav .contact-btn {
   margin-top: 40px;
 }
 
-/* Satu alasan: lebar min 200px, max 220px */
 .reason {
   flex: 1 1 200px;
   max-width: 220px;
 }
 
-/* Judul alasan */
 .reason h3 {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
-/* === RESPONSIVE BREAKPOINT === */
-/* Untuk layar max 768px: ubah navbar jadi column & content center */
+/* === FOOTER === */
+.footer {
+  background: #007bff;
+  color: #fff;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-about,
+.footer-links,
+.footer-contact {
+  flex: 1 1 200px;
+}
+
+.footer h3,
+.footer h4 {
+  margin-bottom: 15px;
+}
+
+.footer p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 15px;
+}
+
 @media(max-width: 768px) {
-  .navbar {
-    position: static;
-    flex-direction: row; /*tetap horizontal*/
-    flex-wrap: nowrap; /*jangan melipat ke bawah*/
-    gap: 10px; /*jarak antar link lebih kecil*/
-    padding: 10px 20px; /*padding atas bawah kecil*/
-    /* text-align: center; */
-    background: rgba(255, 255, 255, 0.8); /* Opsional: latar semi transparan */
-    overflow-x: auto; /*bisa geser jika terlalu panjang*/
-  }
-
-  .navbar ul {
-    flex-direction: row; /*tetap baris*/
-    flex-wrap: nowrap;
-    gap: 10px;
-  }
-
-  .navbar a {
-    margin: 0;           /* Hilangkan margin vertical */
-    font-size: 0.9rem;   /* Font lebih kecil */
-    white-space: nowrap; /* Biar tidak patah baris */
-  }
-
-  .hero-content {
-    padding: 0 20px;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .hero-content .btn {
-    display: inline-block;
-    margin-top: 20px;
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
   }
 
   .about-content {
@@ -325,80 +329,20 @@ nav .contact-btn {
     flex-direction: column;
     align-items: center;
   }
-}
 
-/* === FOOTER === */
-/* Style dasar footer */
-.footer {
-  background: #007bff;
-  color: #fff;
-  padding: 40px 20px 20px;
-}
+  .hero-content {
+    padding: 0 20px;
+  }
 
-/* Container footer: flex row, wrap, max-width */
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  .hero-content h1 {
+    font-size: 2rem;
+  }
 
-/* Kolom about, links, contact di footer */
-.footer-about,
-.footer-links,
-.footer-contact {
-  flex: 1 1 200px;
-}
+  .hero-content p {
+    font-size: 1rem;
+  }
 
-/* Judul & subjudul footer */
-.footer h3,
-.footer h4 {
-  margin-bottom: 15px;
-}
-
-/* Paragraf footer */
-.footer p {
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-/* List link footer: hilangkan bullet & padding */
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-/* Spasi antar link footer */
-.footer-links li {
-  margin-bottom: 8px;
-}
-
-/* Link footer warna putih */
-.footer-links a {
-  color: #fff;
-  text-decoration: none;
-}
-
-/* Hover link footer: underline */
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-/* Bagian copyright bawah */
-.footer-bottom {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(255,255,255,0.3);
-  padding-top: 15px;
-}
-
-/* Responsive footer: kolom jadi column di mobile */
-@media(max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
+  .hero-content .btn {
+    margin-top: 20px;
   }
 }
