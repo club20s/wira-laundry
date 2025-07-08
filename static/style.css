@@ -5,6 +5,9 @@ html, body {
   width: 100%;
   overflow-x: hidden;
 }
+.logo {
+  transform: scale(2.5); /* Membesarkan 2.5x ukuran aslinya */
+}
 
 *, *::before, *::after {
   box-sizing: border-box;
