@@ -6,7 +6,8 @@ html, body {
   overflow-x: hidden;
 }
 .logo {
-  transform: scale(2.5); /* Membesarkan 2.5x ukuran aslinya */
+  transform: scale(2.0); /* Membesarkan 2.5x ukuran aslinya */
+  
 }
 
 *, *::before, *::after {
